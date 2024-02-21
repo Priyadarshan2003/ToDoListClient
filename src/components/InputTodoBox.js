@@ -7,12 +7,13 @@ const InputTodo = () => {
     e.preventDefault();
     try {
       const body = {description};
-      const response = await fetch("http://localhost:5000/todos", {
+      const response = await fetch("https://clumsy-elk-singlet.cyclic.app/todos", {
         method : "POST",
         headers : {"Content-Type": "application/json"},
         body : JSON.stringify(body)
-      });
-      window.location = "/";
+      }
+      ).then(window.location.reload()
+      );
     } catch (err) {
       console.error(err.message);
     }
